@@ -1,0 +1,29 @@
+=========================== REST-API COMMUNICATION ===========================
+Student: Gheorghe Adrian-Valentin
+Grupa: 331CB
+
+Ca baza pentru aceasta tema am avut laboratorul de HTTP, la care am adaugat
+implementarea clientului(o consola interactiva reprezentata printr-un while
+si o succesiune de if-else), care se gaseste in fisierul client.c, si am
+modificat putin functiile din request.c.
+
+Astfel, in request.c se regassc functiile ce se ocupa cu crearea mesajelor 
+pe care le trimitem server-ului. Pentru functia de post request am folosit
+si o variabila care imi spune daca trebuie sa fac parsare pentru adaugare
+de carti sau pentru login/register. Am folosit pentru completarea mesajelor
+functii din parson.c, precum: json_value_init_object, son_value_get_object,
+json_object_set_string, json_object_set_number, json_value_free. Alaturi
+de acestea am mai facut si o functie pentru mesajele de tip delete.
+
+In client.c am implementat tot ce tine de client si de comenzi. In main am
+facut consola in care, cat timp se citesc comenzi, in functie de comanda se
+apeleaza functia corespunzatoare. Am tratat si cazuri exceptionale asa cum
+se sugera in enunt, cazuri precum accesarea unei carti din biblioteca fara
+a fi logat sau fara a avea acces la biblioteca in sine. Pe langa main am
+facut si cate o functie pentru fiecare comanda in parte, toate avand aproape
+aceeasi structura: se citesc informatii de la stdin si se verifica, se
+creeaza mesajele pentru server si se salveaza raspunsul primit de la acesta,
+re reface conexiunea daca nu se primeste raspunsul, urmand ca dupa aceea sa
+se afiseze mesaje de eroare(sau nu) in functie de raspuns.
+
+PS. Nu va speriati la login, am vrut sa para mai realistic :).
